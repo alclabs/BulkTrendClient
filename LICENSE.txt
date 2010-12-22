@@ -24,7 +24,7 @@ Several libraries or tools are used in this product.
 Copyright and license information for each is included below:
 
 -------------------------------------------------------------------------------
-gradle package
+gradle tool
 -------------------------------------------------------------------------------
 Website: http://gradle.org
 License: Apache version 2.0 - http://www.apache.org/licenses/LICENSE-2.0.html
