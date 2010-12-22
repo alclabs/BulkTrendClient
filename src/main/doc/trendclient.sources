@@ -1,0 +1,10 @@
+ABSPATH:1:#main_conf/cl_stpt_tn
+ABSPATH:1:#main_conf/override_tn
+ABSPATH:1:#main_conf/stpt_adj_tn
+ABSPATH:1:#main_conf/lstat/zone_temp
+ABSPATH:1:#main_conf/ht_stpt_tn
+ABSPATH:1:#board_room/ht_stpt_tn
+ABSPATH:1:#board_room/stpt_adj_tn
+ABSPATH:1:#board_room/override_tn
+ABSPATH:1:#board_room/lstat
+ABSPATH:1:#board_room/cl_stpt_tn
