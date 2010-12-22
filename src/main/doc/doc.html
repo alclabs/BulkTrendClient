@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Trendclient</title>
+    <title>BulkTrendClient</title>
     <style type="text/css">
         h1, h2, h3 { font-family:sans-serif; }
         h3 { font-size: 95%; }
@@ -24,37 +24,37 @@
 
 </head>
 <body>
-<h1>Trendclient</h1>
+<h1>BulkTrendClient</h1>
 <p>
-    Trendclient is a sample java client for the trendserver WebCTRL Add-On.  It is primarily intended
+    BulkTrendClient is a sample java client for the BulkTrendServer WebCTRL Add-On.  It is primarily intended
     for reference or as a starting point for a useful java client.  If you want to do something
     more useful with the trend samples, you may implement  
-    Please see the documentation in the trendserver add-on for more details on the trendserver
+    Please see the documentation in the BulkTrendServer add-on for more details on the BulkTrendServer
     web service.
 </p>
 <h2>Building</h2>
 <p>
-    If you have the full source distribution, Trendclient can be built using the
+    If you have the full source distribution, BulkTrendClient can be built using the
     <a target="_blank" href="http://www.gradle.org">Gradle</a>
     build tool using the supplied gradlew or gradlew.bat scripts.
 </p>
 <p>
-    You must have a Java JDK in your path to build trendclient.  Run the gradlew script with no parameters to build an
+    You must have a Java JDK in your path to build BulkTrendClient.  Run the gradlew script with no parameters to build an
     install image.  For Mac/Linux this would be
     &quot;./gradlew&quot;, for Windows just &quot;gradlew&quot;.  This will build an install image
     in the build/distributions/exploded subdirectory.  Go to that directory to execute the
-    trendclient.
+    BulkTrendClient.
 </p>
 
 <h2>Usage</h2>
 <p>
-    The trendclient application uses a somewhat awkward mix of configuration files and command line
+    The BulkTrendClient application uses a somewhat awkward mix of configuration files and command line
     parameters.
 </p>
 
 <h3>Configuration Files</h3>
 <p>
-    By default, trendclient expects the two configuration files (trendclient.properties and
+    By default, BulkTrendClient expects the two configuration files (trendclient.properties and
     trenclient.sources) to be in the current working
     directory, but you can use the -dir command line option to specify an alternate location.
 </p>
@@ -71,7 +71,7 @@
     <tr>
         <td style="width:30pt;">&nbsp;</td>
         <td class="prop">user</td>
-        <td class="desc">user name.  Note that The specified user must have the functional privilege in
+        <td class="desc">user name.  Note that the specified user must have the functional privilege in
             WebCTRL of &quot;Remote Data Access - SOAP&quot;.</td>
     </tr>
     <tr>
