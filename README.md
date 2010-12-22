@@ -45,12 +45,11 @@ Command Line Parameters
 -----------------------
 * `-dir <directory>` -- Directory for trendclient.properties and trendclient.sources
 * `-start <startDate>` -- Starting date to retrieve trends (mm/dd/yyyy).  
-	                    Defaults to yesterday. Trends will be retrieved starting at midnight (0'th hour) 
-	                    on the specified day.
-* `-end <endDate>` -- Ending date to retrieve trends (mm/dd/yyyy). 
-	                Defaults to yesterday. Trends will be retrieved up to, but not including, 
-	                midnight of the evening of the day specified. Specifying the same date for 
-	                start and end will retrieve all the trends for that day.
+  Defaults to yesterday. Trends will be retrieved starting at midnight (0'th hour) 
+  on the specified day.
+* `-end <endDate>` -- Ending date to retrieve trends (mm/dd/yyyy).  
+  Defaults to yesterday. Trends will be retrieved up to, but not including, midnight of the evening of the day specified.
+  Specifying the same date for start and end will retrieve all the trends for that day.
 * `-help` -- Displays help
 * `-nozip` -- Disable zip compression
 * `-testfile <file>` -- Read data from file instead of over HTTP
