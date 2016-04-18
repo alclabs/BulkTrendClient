@@ -16,6 +16,7 @@
 
 package com.controlj.experiment.bulktrend.trendclient.handler;
 
+import java.io.PrintStream;
 import java.text.NumberFormat;
 import java.util.Date;
 
@@ -24,11 +25,17 @@ public class StatResultHandler implements TrendResultHandler {
     long created;
     double analogAvg;
     NumberFormat numFormat;
+    PrintStream out;
 
     public StatResultHandler() {
         created = System.currentTimeMillis();
         numFormat = NumberFormat.getNumberInstance();
         numFormat.setMinimumFractionDigits(2);
+        out = System.out;
+    }
+
+    public void setOutput(PrintStream out) {
+        this.out = out;
     }
 
     public void source(String sourceID) {
@@ -49,13 +56,13 @@ public class StatResultHandler implements TrendResultHandler {
 
         long totalSamples = analog + digital;
         double totalSeconds = (end - created) / 1000.0;
-        System.out.println("Retrieved a total of " + totalSamples + " samples "+
+        out.println("Retrieved a total of " + totalSamples + " samples "+
                 "from " + sources + " sources "+
                 "in a total of "+
         numFormat.format(totalSeconds) + " seconds");
-        System.out.println("Thats " + numFormat.format( totalSamples / totalSeconds) +" samples / sec");
-        System.out.println("  Analog : " + analog);
-        System.out.println("  Digital: " + digital);
-        System.out.println("  Analog Average: "+ (analogAvg / analog));
+        out.println("Thats " + numFormat.format( totalSamples / totalSeconds) +" samples / sec");
+        out.println("  Analog : " + analog);
+        out.println("  Digital: " + digital);
+        out.println("  Analog Average: "+ (analogAvg / analog));
     }
 }

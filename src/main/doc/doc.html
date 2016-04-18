@@ -102,6 +102,11 @@
                 <li><span class="code">com.controlj.experiment.bulktrend.trendclient.handler.PrettyPrintResultHandler</span>
                     <p>Prints the retrieved trend samples</p>
                 </li>
+                <li><span class="code">com.controlj.experiment.bulktrend.trendclient.handler.CSVColumnResultHandler</span>
+                    <p>Prints the retrieved trend samples as CSV with a column for each source and a row for each unique timestamp</p>
+                    <p>Note that this must read all samples into memory in order to find the common timestamps.
+                       This may take a  large amount of memory for many samples</p>
+                </li>
                 <li>Make your own..
                     <p>That's the point of a sample client.</p>
                 </li>
@@ -152,6 +157,10 @@
     <tr>
         <td class="prop">-help</td>
         <td class="desc">Displays help</td>
+    </tr>
+    <tr>
+        <td class="prop">-outfile &lt;file></td>
+        <td class="desc">Write data to a file instead of to std out</td>
     </tr>
     <tr>
         <td class="prop">-nozip</td>

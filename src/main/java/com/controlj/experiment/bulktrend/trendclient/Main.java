@@ -45,6 +45,7 @@ public class Main {
     private static final String PARAM_DIR =         "dir";
     private static final String PARAM_START =       "start";
     private static final String PARAM_END =         "end";
+    private static final String PARAM_OUTFILE =     "outfile";
     private static final String PARAM_NOZIP =       "nozip";
 
     private static final String PROP_SERVER =       "server";
@@ -76,7 +77,7 @@ public class Main {
         }
 
         // dir option - read config files
-        File baseDir = new File("");
+        File baseDir = new File(".");
         if (line.hasOption(PARAM_DIR)) {
             baseDir = new File(line.getOptionValue(PARAM_DIR));
         }
@@ -143,6 +144,20 @@ public class Main {
             tc.setZip(false);            
         }
 
+        if (line.hasOption(PARAM_OUTFILE)) {
+            String fileName = line.getOptionValue(PARAM_OUTFILE);
+            File outFile = new File(fileName);
+            if (outFile.exists()) {
+                outFile.delete();
+            }
+
+            try {
+                tc.setOutput(new PrintStream(outFile));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                System.exit(-1);
+            }
+        }
 
         tc.go();
     }
@@ -219,11 +234,15 @@ public class Main {
         options.addOption(OptionBuilder.withDescription("Disable zip compression")
                 .create(PARAM_NOZIP));
 
-        options.addOption(OptionBuilder.withArgName("file")
+        options.addOption(OptionBuilder.withArgName("testfile")
                 .hasOptionalArg()
                 .withDescription("Read data from file instead of over HTTP")
-                .create(PARAM_TESTFILE)
-                );
+                .create(PARAM_TESTFILE));
+
+        options.addOption(OptionBuilder.withArgName("outfile")
+                .hasOptionalArg()
+                .withDescription("Write output data to the specified file instead of std out")
+                .create(PARAM_OUTFILE));
         
 
         return options;

@@ -18,6 +18,7 @@ package com.controlj.experiment.bulktrend.trendclient.handler;
 
 import com.controlj.experiment.bulktrend.trendclient.handler.TrendResultHandler;
 
+import java.io.PrintStream;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -26,12 +27,18 @@ import java.util.Date;
 public class PrettyPrintResultHandler implements TrendResultHandler {
     NumberFormat analogFormat;
     DateFormat dateFormat;
+    PrintStream out;
 
     public PrettyPrintResultHandler() {
         analogFormat = NumberFormat.getNumberInstance();
         analogFormat.setMaximumFractionDigits(3);
 
         dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        out = System.out;
+    }
+
+    public void setOutput(PrintStream out) {
+        this.out = out;
     }
 
     public void source(String sourceID) {
@@ -39,11 +46,11 @@ public class PrettyPrintResultHandler implements TrendResultHandler {
     }
 
     public void analogSample(Date date, double value) {
-        System.out.println("    "+dateFormat.format(date)+"  --  " + analogFormat.format(value));
+        out.println("    "+dateFormat.format(date)+"  --  " + analogFormat.format(value));
     }
 
     public void digitalSample(Date date, boolean value) {
-        System.out.println("    "+dateFormat.format(date)+"  --  " + value);
+        out.println("    "+dateFormat.format(date)+"  --  " + value);
     }
 
     public void close() {        

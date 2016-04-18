@@ -16,9 +16,11 @@
 
 package com.controlj.experiment.bulktrend.trendclient.handler;
 
+import java.io.PrintStream;
 import java.util.Date;
 
 public interface TrendResultHandler {
+    void setOutput(PrintStream out);
     void source(String sourceID);
     void analogSample(Date date, double value);
     void digitalSample(Date date, boolean value);

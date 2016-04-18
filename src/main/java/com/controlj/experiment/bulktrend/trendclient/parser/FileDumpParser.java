@@ -30,7 +30,7 @@ public class FileDumpParser implements ResponseParser {
     }
 
     public String getId() {
-        return "json";
+        return "csv";
     }
 
     public void parseResponse(int numSources, InputStream in) throws IOException {

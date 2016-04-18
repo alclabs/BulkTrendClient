@@ -48,6 +48,7 @@ public class TrendClient {
     private boolean zip = true;
     private InputStream altInput = null;
     private int defaultDigits = 2;
+    private PrintStream out;
     
 
     TrendClient(String url, Collection<String> ids, String user, String password, String handlerClass, String responseClass) {
@@ -55,6 +56,7 @@ public class TrendClient {
         this.user = user;
         this.password = password;
         this.url = url;
+        this.out = System.out;
 
         handler = loadClass(handlerClass, TrendResultHandler.class);
         parser = loadClass(responseClass, ResponseParser.class);
@@ -105,6 +107,8 @@ public class TrendClient {
     public void setAlternateInput(InputStream alt) {
         altInput = alt;
     }
+
+    public void setOutput(PrintStream out) { this.out = out; }
 
     public Calendar getStart() {
         Calendar result = start;
@@ -207,6 +211,7 @@ public class TrendClient {
             throw new IllegalStateException("Handler not set");
         }
 
+        handler.setOutput(out);
         parser.setHandler(handler);
     }
 
